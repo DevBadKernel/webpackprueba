@@ -1,3 +1,52 @@
 body{
     min-height:100vh;
 }
+
+@mixin container($direction, $justify, $align){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align; 
+}
+
+#curriculum{
+    @include container(row, center, flex-start);
+    width: 80%;
+    background-color: pink;
+    margin: 0 auto;
+    #columnaIzquierda{
+        @include container(column, flex-start, center);
+        .foto{
+            width: 200px;
+        }
+        .icono{
+            width: 60px;
+        }
+        .apartado{
+            @include container(column, flex-start, center)
+        }
+        border: solid 2px black;
+    }
+    #columnaCentral{
+        @include container(column, flex-start, center);
+        flex-grow: 1;
+        height: 100%;
+        background-color: gray;
+    }
+    #columnaDerecha{
+        @include container(column, flex-start, center);
+        width: 100px;
+        background-color: aquamarine;
+        .fotoRedes{
+            width: 100px;
+        }
+        .apartado{
+        @include container(column, flex-start, center);
+        }   
+    }
+}
+
+
+
+
+
