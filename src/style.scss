@@ -11,7 +11,7 @@ body{
 }
 
 @mixin fonts($style, $color, $size){
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-style: $style;
     color: $color;
     text-align: center;
@@ -22,13 +22,14 @@ body{
     @include container(row, center, flex-start);
     width: 80%;
     margin: 0 auto;
+    padding-top: 100px;
     #columnaIzquierda{
         width: 200px;
         @include container(column, flex-start, center);
         .fotoNombre{
             @include container(column, flex-start, center);
-            border: 3px solid #eaeaea;
-            width: inherit;
+            border: 1px solid #eaeaea;
+            width: inherit;        
         }
         .foto{
             width: 200px;
@@ -56,32 +57,55 @@ body{
             @include container(column, flex-start, center);
             padding-bottom: 20px;
             padding-top: 20px;
-            border: 3px solid #eaeaea;
+            border: 1px solid #eaeaea;
             width: inherit;
             background-color:#ffffff;
         }
     }
     #columnaCentral{
         @include container(column, flex-start, center);
+        padding-top: 80px;
+        .tituloDescripcion{
+            @include fonts(bold, black, 50px);
+        }
+        .subtitulo{
+            padding-top: 25px;
+            @include fonts(bold, #999999, 20px);
+        }
+        .separador{
+            background-color: #ffd42d;
+            width: 30px;
+            height: 10px;
+            margin-top: 100px;
+        }
+        .descripcion{
+            @include fonts(bold, black, 20px);
+            margin-top: 20PX;
+        }
+        .loremipsum{
+            margin-top: 50px;
+            @include fonts(normal, #999999, normal)
+        }
         flex-grow: 1;
         height: 100%;
         background-color: #ffffff;
-        border: 3px solid #eaeaea;
+        border: 1px solid #eaeaea;
     }
     #columnaDerecha{
         @include container(column, flex-start, center);
-        width: 80px;
+        width: 60px;
         background-color: #ffffff;
         .fotoRedes{
-            width: 50px;
+            width: 40px;
         }
         .apartadoD{
         @include container(column, flex-start, center);
         @include fonts(normal, black, small);
         padding-top: 10px;
         padding-bottom: 10px;
-        border: 3px solid #eaeaea;
         width: inherit;
+        background-color: #ffd42d;
+        border: 1px solid #eaeaea;
         }   
     }
 }
