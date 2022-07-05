@@ -1,113 +1,133 @@
 body{
-    min-height:100vh;
-    background-color:#eaeaea;
+min-height:100vh;
+background-color:#eaeaea;
 }
 
 @mixin container($direction, $justify, $align){
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify;
-    align-items: $align; 
+display: flex;
+flex-direction: $direction;
+justify-content: $justify;
+align-items: $align; 
 }
 
 @mixin fonts($style, $color, $size){
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: $style;
-    color: $color;
-    text-align: center;
-    font-size: $size;
+font-family: Arial, Helvetica, sans-serif;
+font-style: $style;
+color: $color;
+text-align: center;
+font-size: $size;
+}
+
+@mixin separador(){
+background-color: #ffd42d;
+width: 30px;
+height: 10px; 
+margin-top: 100px;
 }
 
 #curriculum{
-    @include container(row, center, flex-start);
-    width: 80%;
-    margin: 0 auto;
-    padding-top: 100px;
-    #columnaIzquierda{
-        width: 200px;
-        @include container(column, flex-start, center);
-        .fotoNombre{
-            @include container(column, flex-start, center);
-            border: 1px solid #eaeaea;
-            width: inherit;        
-        }
-        .foto{
-            width: 200px;
-            padding-top: none;
-        }
-        .nombre{
-            @include fonts(italic, beige, medium);
-            background-color: gray;
-            width: 200px;
-            height: 30px;
-            padding-top: 10px;
-        }
-        .icono{
-            width: 40px;
-        }
-        .titulo{
-            @include fonts(italic, black, medium);
-            padding-top: 20px;
-        }
-        .subtitulo{
-            @include fonts(normal, black, small);
-            padding-top: 10px;
-        }
-        .apartado{
-            @include container(column, flex-start, center);
-            padding-bottom: 20px;
-            padding-top: 20px;
-            border: 1px solid #eaeaea;
-            width: inherit;
-            background-color:#ffffff;
-        }
+  @include container(row, center, flex-start);
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 100px;
+  #columnaIzquierda{
+    width: 200px;
+    @include container(column, flex-start, center);
+    .fotoNombre{
+      @include container(column, flex-start, center);
+      border: 1px solid #eaeaea;
+      width: inherit;        
     }
-    #columnaCentral{
-        @include container(column, flex-start, center);
-        padding-top: 80px;
-        .tituloDescripcion{
-            @include fonts(bold, black, 50px);
-        }
-        .subtitulo{
-            padding-top: 25px;
-            @include fonts(bold, #999999, 20px);
-        }
-        .separador{
-            background-color: #ffd42d;
-            width: 30px;
-            height: 10px;
-            margin-top: 100px;
-        }
-        .descripcion{
-            @include fonts(bold, black, 20px);
-            margin-top: 20PX;
-        }
-        .loremipsum{
-            margin-top: 50px;
-            @include fonts(normal, #999999, normal)
-        }
-        flex-grow: 1;
-        height: 100%;
-        background-color: #ffffff;
-        border: 1px solid #eaeaea;
+    .foto{
+      width: 200px;
+      padding-top: none;
     }
-    #columnaDerecha{
-        @include container(column, flex-start, center);
-        width: 60px;
-        background-color: #ffffff;
-        .fotoRedes{
-            width: 40px;
-        }
-        .apartadoD{
-        @include container(column, flex-start, center);
-        @include fonts(normal, black, small);
-        padding-top: 10px;
-        padding-bottom: 10px;
-        width: inherit;
-        background-color: #ffd42d;
-        border: 1px solid #eaeaea;
-        }   
+    .nombre{
+      @include fonts(italic, beige, medium);
+      background-color: gray;
+      width: 200px;
+      height: 30px;
+      padding-top: 10px;
     }
+    .icono{
+      width: 40px;
+    }
+    .titulo{
+      @include fonts(italic, black, medium);
+      padding-top: 20px;
+    }
+    .subtitulo{
+      @include fonts(normal, black, small);
+      padding-top: 10px;
+    }
+    .apartado{
+      @include container(column, flex-start, center);
+      padding-bottom: 20px;
+      padding-top: 20px;
+      border: 1px solid #eaeaea;
+      width: inherit;
+      background-color:#ffffff;
+    }
+  }
+  #columnaCentral{
+    @include container(column, flex-start, center);
+    padding: 120px;
+    flex-grow: 1;
+    height: 100%;
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    .tituloDescripcion{
+      @include fonts(bold, black, 50px);
+    }
+    .subtitulo{
+      padding-top: 25px;
+      @include fonts(bold, #999999, 20px);
+    }
+    .separador{
+      @include separador();
+    }
+    .descripcion{
+      @include fonts(bold, black, 20px);
+      margin-top: 20PX;
+    }
+    .loremipsum{
+      margin-top: 50px;
+      line-height: 2;
+      @include fonts(italic, #999999, normal);
+    }
+    .separador{
+      @include separador();
+    }
+    .listas{
+      padding-top: 50px;
+      @include container(row, flex-start, center);
+    }
+      .leftList{
+        @include fonts(italic, black, normal);
+        @include container(column, flex-start, right);
+      }
+      .rightList{
+        @include fonts(italic, #999999, normal);
+        @include container(column, flex-start, left);
+      }
+  }
+  #columnaDerecha{
+    @include container(column, flex-start, center);
+    width: 60px;
+    background-color: #ffffff;
+    .fotoRedes{
+      width: 40px;
+    }
+    .apartadoD{
+    @include container(column, flex-start, center);
+    @include fonts(normal, black, small);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: inherit;
+    background-color: #ffd42d;
+    border: 1px solid #eaeaea;
+    }   
+  }
 }
 
 
