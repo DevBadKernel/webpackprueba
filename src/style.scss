@@ -14,7 +14,6 @@ align-items: $align;
 font-family: Arial, Helvetica, sans-serif;
 font-style: $style;
 color: $color;
-text-align: center;
 font-size: $size;
 }
 
@@ -44,6 +43,7 @@ margin-top: 100px;
     }
     .nombre{
       @include fonts(italic, beige, medium);
+      text-align: center;
       background-color: gray;
       width: 200px;
       height: 30px;
@@ -93,23 +93,34 @@ margin-top: 100px;
     .loremipsum{
       margin-top: 50px;
       line-height: 2;
+      text-align: center;
       @include fonts(italic, #999999, normal);
     }
     .separador{
       @include separador();
     }
-    .listas{
+    .lista{
       padding-top: 50px;
-      @include container(row, flex-start, center);
-    }
-      .leftList{
+      @include container(column, flex-start, center);
+      .fila{
         @include fonts(italic, black, normal);
-        @include container(column, flex-start, right);
+        @include container(row, space-around, flex-start);
+        border: 2px solid #999999;
+        .etiqueta{
+          @include fonts(italic, black, normal);
+          @include container(row, space-around, flex-start);
+          text-align: right;
+          width: 300px;
+        }
+        .datos{
+          @include fonts(normal, #999999, normal);
+          @include container(row, space-around, flex-start);
+          width: 300px;
+          margin-top: 0px;
+          text-align: left;
+        }
       }
-      .rightList{
-        @include fonts(italic, #999999, normal);
-        @include container(column, flex-start, left);
-      }
+    }  
   }
   #columnaDerecha{
     @include container(column, flex-start, center);
