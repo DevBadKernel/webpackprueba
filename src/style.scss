@@ -67,10 +67,10 @@ margin-top: 80px;
       border: 1px solid #eaeaea;
       width: inherit;
       background-color:#ffffff;
-      transition: 0.8s ease;
+      transition: 0.6s ease;
       &:hover{
         background-color: #ffd42d;
-        transition: 0.8s ease;
+        transition: 0.6s ease;
       }
     }
   }
@@ -180,18 +180,30 @@ margin-top: 80px;
     }
     .apartadoD{
     @include container(column, flex-start, center);
-    @include fonts(normal, black, small);
     padding-top: 10px;
     padding-bottom: 10px;
     width: inherit;
     background-color: #ffd42d;
     border: 1px solid #eaeaea;
-    transition: 0.8s ease;
+    transition: 0.6s ease;
     &:hover{
       filter: invert(100%);
       background-color: white;
-      transition: 0.8s ease;
+      transition: 0.6s ease;
+      }
     }
-    }   
+    .apartadoCopy{
+      .copyright{
+        writing-mode: vertical-lr;
+        @include fonts(normal, white, small);
+      }
+      @include container(column, flex-start, center);
+      background-color: black;
+      width: inherit;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border: 1px solid #eaeaea;
+    }
+      
   }
 }
